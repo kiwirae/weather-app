@@ -12,10 +12,13 @@ console.log('Client side javascript file is loaded!')
 
 document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault()
+
     const location = event.target.elements.input.value
+
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
-    fetch(`http://localhost:3000/weather?search=${location}`)
+
+    fetch(`/weather?search=${location}`)
     .then((response) => {
         return response.json()
     })
